@@ -8,10 +8,26 @@ module Types
     # They will be entry points for queries on your schema.
 
     # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :properties, [Types::PropertyType], null: false, description: "The list of properties"
+    def all_properties
+      Property.all
+    end
+
+    field :property, Types::PropertyType, null: false do
+      argument :id, ID, required: true
+    end
+    def property(id:)
+      Property.find(id)
+    end
+
+    field :furnishings, [Types::FurnishingType], null: false, description: "The list of furnishings"
+    def all_furnishings
+      Furnishing.all
+    end
+
+    field :valuations, [Types::ValuationType], null: false, description: "The list of valuations"
+    def all_valuations
+      Valuation.all
     end
   end
 end

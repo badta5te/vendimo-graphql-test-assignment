@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  address: MyString
+  size: 1.5
+  bedrooms: 1
+
+two:
+  type: 
+  address: MyString
+  size: 1.5
+  bedrooms: 1

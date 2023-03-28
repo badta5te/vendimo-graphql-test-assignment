@@ -10,36 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_28_053609) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_062134) do
   create_table "furnishings", force: :cascade do |t|
     t.integer "property_id", null: false
-    t.string "color"
-    t.string "condition"
-    t.integer "quantity"
+    t.string "color", null: false
+    t.string "condition", null: false
+    t.integer "quantity", null: false
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", null: false
     t.index ["property_id"], name: "index_furnishings_on_property_id"
   end
 
   create_table "properties", force: :cascade do |t|
-    t.string "type"
-    t.string "address"
-    t.float "size"
-    t.integer "bedrooms"
+    t.string "property_type", null: false
+    t.string "address", null: false
+    t.float "size", null: false
+    t.integer "bedrooms", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "valuations", force: :cascade do |t|
-    t.date "date"
-    t.float "value"
-    t.string "evaluator"
-    t.string "currency"
+    t.integer "property_id", null: false
+    t.date "date", null: false
+    t.float "value", null: false
+    t.string "evaluator", null: false
+    t.string "currency", null: false
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_valuations_on_property_id"
   end
 
   add_foreign_key "furnishings", "properties"
+  add_foreign_key "valuations", "properties"
 end

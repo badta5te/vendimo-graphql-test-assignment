@@ -35,3 +35,12 @@ CONDITIONS = %w[new used].freeze
     evaluator: Faker::Name.name
   )
 end
+
+3.times do
+  Property.create(
+    property_type: TYPE_OF_PROPERTIES.sample,
+    address: Faker::Address.full_address,
+    size: rand(30.2...333.3).round(1),
+    bedrooms: rand(1...5)
+  )
+end

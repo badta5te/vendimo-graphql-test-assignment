@@ -5,7 +5,7 @@ module Types
     include GraphQL::Types::Relay::HasNodesField
 
     field :properties, [Types::PropertyType], null: false, description: "The list of properties"
-    def all_properties
+    def properties
       Property.all
     end
 
@@ -18,7 +18,7 @@ module Types
     end
 
     field :furnishings, [Types::FurnishingType], null: false, description: "The list of furnishings"
-    def all_furnishings
+    def furnishings
       Furnishing.all
     end
 
@@ -31,7 +31,7 @@ module Types
     end
 
     field :valuations, [Types::ValuationType], null: false, description: "The list of valuations"
-    def all_valuations
+    def valuations
       Valuation.all
     end
 

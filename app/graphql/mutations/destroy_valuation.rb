@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Mutations
-  class DestroyValuations < BaseMutation
+  class DestroyValuation < BaseMutation
     argument :id, ID, required: true
 
     field :id, ID, null: true

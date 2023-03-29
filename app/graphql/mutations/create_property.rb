@@ -11,10 +11,10 @@ module Mutations
     field :errors, [String], null: false
 
     def resolve(property_type:, address:, size:, bedrooms:)
-      property = Property.new(property_type: property_type, address: address, size: size, bedrooms: bedrooms)
+      property = Property.new(property_type:, address:, size:, bedrooms:)
 
       if property.save
-        { property: property, errors: [] }
+        { property:, errors: [] }
       else
         { property: nil, errors: property.errors.full_messages }
       end

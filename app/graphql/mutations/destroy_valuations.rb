@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 module Mutations
-  class DestroyProperty < BaseMutation
+  class DestroyValuations < BaseMutation
     argument :id, ID, required: true
 
     field :id, ID, null: true
 
     def resolve(id:)
-      property = Property.find(id)
+      valuation = Valuation.find(id)
 
-      if property.destroy
+      if valuation.destroy
         { id:, errors: [] }
       else
-        { id: nil, errors: property.errors.full_messages }
+        { id: nil, errors: valuation.errors.full_messages }
       end
     end
   end

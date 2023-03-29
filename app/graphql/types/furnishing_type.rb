@@ -3,7 +3,6 @@
 module Types
   class FurnishingType < Types::BaseObject
     field :id, ID, null: false
-    field :property_id, Integer, null: false
     field :color, String, null: false
     field :condition, String, null: false
     field :quantity, Integer, null: false

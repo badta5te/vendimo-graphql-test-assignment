@@ -4,16 +4,13 @@ module Types
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
-
-    # TODO: remove me
     field :properties, [Types::PropertyType], null: false, description: "The list of properties"
     def all_properties
       Property.all
     end
 
     field :property, Types::PropertyType, null: false do
+      description "Get specific property by ID"
       argument :id, ID, required: true
     end
     def property(id:)
@@ -25,9 +22,25 @@ module Types
       Furnishing.all
     end
 
+    field :furnishing, Types::FurnishingType, null: false do
+      description "Get specific furnishing by ID"
+      argument :id, ID, required: true
+    end
+    def furnishing(id:)
+      Furnishing.find(id)
+    end
+
     field :valuations, [Types::ValuationType], null: false, description: "The list of valuations"
     def all_valuations
       Valuation.all
+    end
+
+    field :valuation, Types::ValuationType, null: false do
+      description "Get specific valuation by ID"
+      argument :id, ID, required: true
+    end
+    def valuation(id:)
+      Valuation.find(id)
     end
   end
 end

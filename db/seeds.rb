@@ -25,7 +25,6 @@ CONDITIONS = %w[new used].freeze
     color: Faker::Color.color_name,
     condition: CONDITIONS.sample,
     quantity: rand(1...5),
-    notes: Faker::Lorem.sentence
   )
 
   Valuation.create(

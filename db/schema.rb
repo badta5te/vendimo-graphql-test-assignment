@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_28_062134) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_29_030322) do
   create_table "furnishings", force: :cascade do |t|
     t.integer "property_id", null: false
     t.string "color", null: false
     t.string "condition", null: false
     t.integer "quantity", null: false
-    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name", null: false
@@ -38,7 +37,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_28_062134) do
     t.float "value", null: false
     t.string "evaluator", null: false
     t.string "currency", null: false
-    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_valuations_on_property_id"

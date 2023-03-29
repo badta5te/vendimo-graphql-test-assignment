@@ -5,11 +5,9 @@ one:
   color: MyString
   condition: MyString
   quantity: 1
-  notes: MyText
 
 two:
   property: two
   color: MyString
   condition: MyString
   quantity: 1
-  notes: MyText

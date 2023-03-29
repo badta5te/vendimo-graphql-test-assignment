@@ -89,7 +89,7 @@ RSpec.describe Types::QueryType do
                                                                       ))
         end
 
-        it 'increase number of valuations by 1' do
+        it 'increase number of properties by 1' do
           expect { request }.to change { Property.count }.by(1)
         end
       end
